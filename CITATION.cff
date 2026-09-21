@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use or discuss this prototype, please cite the author."
+title: "Agentic Computational Materials Workflow"
+type: software
+authors:
+  - family-names: "Liu"
+    given-names: "Feixiang"
+    email: "liufeixiang@smail.nju.edu.cn"
+    orcid: "https://orcid.org/0000-0001-6555-255X"
+    affiliation: "Nanjing University"
+version: 0.1.0
+date-released: 2026-09-21

@@ -1,0 +1,4 @@
+-r requirements-demo.txt
+openai
+python-dotenv
+mp-api

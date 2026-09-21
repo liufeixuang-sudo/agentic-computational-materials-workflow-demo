@@ -1,0 +1,13 @@
+.env
+material_project.md
+.venv/
+.idea/
+.pytest_cache/
+__pycache__/
+*.pyc
+outputs/
+.DS_Store
+Thumbs.db
+build/
+dist/
+*.egg-info/

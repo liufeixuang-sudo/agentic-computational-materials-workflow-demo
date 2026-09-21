@@ -1,0 +1,3 @@
+# Minimal dependencies for the offline structure and workflow demonstration.
+ase
+pymatgen
