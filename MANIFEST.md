@@ -25,6 +25,7 @@
 
 - `README.md`
 - `docs/architecture.md`
+- `docs/architecture.png`
 - `docs/architecture.svg`
 - `docs/code-walkthrough.md`
 - `.env.example`

@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic Computational Materials Workflow</title>
+  <desc id="desc">Two-row architecture diagram showing online and offline entry, optional Materials Project structure acquisition, deterministic planning, validation, interchangeable execution, review, and reporting.</desc>
+  <defs>
+    <marker id="arrow-main" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5.5 L0,11 Z" fill="#355b86"/>
+    </marker>
+    <marker id="arrow-branch" markerWidth="11" markerHeight="11" refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5.5 L0,11 Z" fill="#b76816"/>
+    </marker>
+    <style>
+      .title { font: 700 34px Arial, Helvetica, sans-serif; fill: #172033; }
+      .subtitle { font: 400 17px Arial, Helvetica, sans-serif; fill: #53637a; }
+      .section { font: 700 18px Arial, Helvetica, sans-serif; fill: #314057; letter-spacing: .4px; }
+      .node-title { font: 700 19px Arial, Helvetica, sans-serif; fill: #172033; }
+      .node-file { font: 600 13px Consolas, "Courier New", monospace; fill: #25334a; }
+      .node-text { font: 400 14px Arial, Helvetica, sans-serif; fill: #43536a; }
+      .label { font: 600 13px Arial, Helvetica, sans-serif; fill: #53637a; }
+      .terminal-text { font: 700 14px Consolas, "Courier New", monospace; fill: #8b2b2b; }
+      .note-title { font: 700 17px Arial, Helvetica, sans-serif; fill: #172033; }
+      .note-text { font: 400 14px Arial, Helvetica, sans-serif; fill: #303d52; }
+      .panel { fill: #fbfcfe; stroke: #cbd5e1; stroke-width: 1.5; }
+      .blue { fill: #edf4fc; stroke: #3c78c7; stroke-width: 2.2; }
+      .green { fill: #edf8f3; stroke: #269166; stroke-width: 2.2; }
+      .purple { fill: #f4effd; stroke: #7851c5; stroke-width: 2.2; }
+      .orange { fill: #fff5e8; stroke: #c97920; stroke-width: 2.2; }
+      .neutral { fill: #f5f7fa; stroke: #7d8ca3; stroke-width: 2.2; }
+      .red { fill: #fff1f1; stroke: #c94a4a; stroke-width: 1.8; }
+      .main-arrow { fill: none; stroke: #355b86; stroke-width: 2.4; marker-end: url(#arrow-main); }
+      .branch-arrow { fill: none; stroke: #b76816; stroke-width: 2.1; stroke-dasharray: 7 5; marker-end: url(#arrow-branch); }
+      .return-arrow { fill: none; stroke: #269166; stroke-width: 2.2; marker-end: url(#arrow-main); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1100" fill="#ffffff"/>
+  <text x="55" y="58" class="title">Agentic Computational Materials Workflow</text>
+  <text x="55" y="88" class="subtitle">Explicit permissions, deterministic execution, scientific review, and reproducible reports</text>
+
+  <rect x="35" y="118" width="1530" height="393" rx="14" class="panel"/>
+  <text x="58" y="150" class="section">1 · ENTRY AND STRUCTURE PREPARATION</text>
+
+  <rect x="60" y="180" width="235" height="115" rx="9" class="purple"/>
+  <text x="177.5" y="209" text-anchor="middle" class="node-title">Online Agent</text>
+  <text x="177.5" y="235" text-anchor="middle" class="node-file">agent_workflow.py</text>
+  <text x="177.5" y="260" text-anchor="middle" class="node-text">Responses API + function calls</text>
+  <text x="177.5" y="282" text-anchor="middle" class="node-text">bounded final LLM review</text>
+
+  <rect x="60" y="344" width="235" height="105" rx="9" class="neutral"/>
+  <text x="177.5" y="376" text-anchor="middle" class="node-title">Offline CLI</text>
+  <text x="177.5" y="402" text-anchor="middle" class="node-file">run.py</text>
+  <text x="177.5" y="427" text-anchor="middle" class="node-text">CPU-only, no API required</text>
+
+  <rect x="370" y="205" width="235" height="135" rx="9" class="orange"/>
+  <text x="487.5" y="237" text-anchor="middle" class="node-title">Structure Source Gate</text>
+  <text x="487.5" y="264" text-anchor="middle" class="node-text">Does the local structure exist?</text>
+  <text x="487.5" y="290" text-anchor="middle" class="node-text">Yes → use local XYZ/CIF</text>
+  <text x="487.5" y="314" text-anchor="middle" class="node-text">No → require explicit --allow-mp</text>
+
+  <rect x="370" y="376" width="235" height="72" rx="8" class="red"/>
+  <text x="487.5" y="407" text-anchor="middle" class="terminal-text">needs_structure</text>
+  <text x="487.5" y="431" text-anchor="middle" class="node-text">lookup denied or unresolved</text>
+
+  <rect x="680" y="330" width="300" height="145" rx="9" class="green"/>
+  <text x="830" y="360" text-anchor="middle" class="node-title">Optional Materials Project Lookup</text>
+  <text x="830" y="387" text-anchor="middle" class="node-file">materials_project_structure_agent.py</text>
+  <text x="830" y="414" text-anchor="middle" class="node-text">LLM extracts formula / symmetry / limit</text>
+  <text x="830" y="437" text-anchor="middle" class="node-text">Python validates → MPRester query</text>
+  <text x="830" y="460" text-anchor="middle" class="node-text">user selects candidate CIF</text>
+
+  <rect x="680" y="180" width="300" height="115" rx="9" class="blue"/>
+  <text x="830" y="211" text-anchor="middle" class="node-title">Structure Workflow</text>
+  <text x="830" y="238" text-anchor="middle" class="node-file">structure_file_workflow.py</text>
+  <text x="830" y="263" text-anchor="middle" class="node-text">connect structure, core workflow, reports</text>
+  <text x="830" y="284" text-anchor="middle" class="node-text">project-local file boundary</text>
+
+  <rect x="1055" y="180" width="225" height="115" rx="9" class="green"/>
+  <text x="1167.5" y="211" text-anchor="middle" class="node-title">Structure Tools</text>
+  <text x="1167.5" y="238" text-anchor="middle" class="node-file">structure_molecule_summary.py</text>
+  <text x="1167.5" y="263" text-anchor="middle" class="node-text">ASE + pymatgen</text>
+  <text x="1167.5" y="284" text-anchor="middle" class="node-text">normalized metadata + symmetry</text>
+
+  <rect x="1345" y="180" width="185" height="115" rx="9" class="orange"/>
+  <text x="1437.5" y="211" text-anchor="middle" class="node-title">Input Validator</text>
+  <text x="1437.5" y="238" text-anchor="middle" class="node-file">validator.py</text>
+  <text x="1437.5" y="263" text-anchor="middle" class="node-text">required fields</text>
+  <text x="1437.5" y="284" text-anchor="middle" class="node-text">stop before execution</text>
+
+  <rect x="1345" y="354" width="185" height="72" rx="8" class="red"/>
+  <text x="1437.5" y="385" text-anchor="middle" class="terminal-text">blocked_input</text>
+  <text x="1437.5" y="409" text-anchor="middle" class="node-text">validation errors</text>
+
+  <path d="M295 237 H370" class="main-arrow"/>
+  <path d="M295 396 H330 V305 H370" class="main-arrow"/>
+  <path d="M605 240 H680" class="main-arrow"/>
+  <text x="630" y="226" class="label">local file</text>
+  <path d="M487.5 340 V376" class="branch-arrow"/>
+  <text x="501" y="363" class="label">denied</text>
+  <path d="M605 304 H645 V402 H680" class="branch-arrow"/>
+  <text x="618" y="326" class="label">--allow-mp</text>
+  <path d="M830 330 V295" class="return-arrow"/>
+  <text x="842" y="317" class="label">selected CIF</text>
+  <path d="M980 237 H1055" class="main-arrow"/>
+  <path d="M1280 237 H1345" class="main-arrow"/>
+  <path d="M1437.5 295 V354" class="branch-arrow"/>
+  <text x="1450" y="329" class="label">errors</text>
+
+  <rect x="35" y="535" width="1530" height="365" rx="14" class="panel"/>
+  <text x="58" y="568" class="section">2 · DETERMINISTIC PLANNING, EXECUTION, AND REVIEW</text>
+
+  <rect x="1280" y="610" width="250" height="125" rx="9" class="blue"/>
+  <text x="1405" y="641" text-anchor="middle" class="node-title">Planner</text>
+  <text x="1405" y="667" text-anchor="middle" class="node-file">planner_fixture_lookup.py</text>
+  <text x="1405" y="690" text-anchor="middle" class="node-file">planner_router.py</text>
+  <text x="1405" y="716" text-anchor="middle" class="node-text">fixture / Mock / manual data route</text>
+
+  <rect x="1280" y="788" width="250" height="66" rx="8" class="red"/>
+  <text x="1405" y="817" text-anchor="middle" class="terminal-text">needs_data</text>
+  <text x="1405" y="840" text-anchor="middle" class="node-text">no fixture and Mock denied</text>
+
+  <rect x="945" y="610" width="270" height="125" rx="9" class="purple"/>
+  <text x="1080" y="641" text-anchor="middle" class="node-title">Interchangeable Execution</text>
+  <text x="1080" y="667" text-anchor="middle" class="node-file">SimulationAdapter</text>
+  <text x="1080" y="693" text-anchor="middle" class="node-text">prepare → execute → parse</text>
+  <text x="1080" y="716" text-anchor="middle" class="node-text">FixtureRunnerAdapter | MockRunner</text>
+
+  <rect x="665" y="610" width="215" height="125" rx="9" class="orange"/>
+  <text x="772.5" y="641" text-anchor="middle" class="node-title">Output Validator</text>
+  <text x="772.5" y="667" text-anchor="middle" class="node-file">validator.py</text>
+  <text x="772.5" y="693" text-anchor="middle" class="node-text">task ID, source, type, value</text>
+  <text x="772.5" y="716" text-anchor="middle" class="node-text">provenance and demo policy</text>
+
+  <rect x="665" y="788" width="215" height="66" rx="8" class="red"/>
+  <text x="772.5" y="817" text-anchor="middle" class="terminal-text">blocked_output</text>
+  <text x="772.5" y="840" text-anchor="middle" class="node-text">output validation errors</text>
+
+  <rect x="365" y="610" width="235" height="125" rx="9" class="green"/>
+  <text x="482.5" y="641" text-anchor="middle" class="node-title">Scientific Reviewer</text>
+  <text x="482.5" y="667" text-anchor="middle" class="node-file">reviewer.py</text>
+  <text x="482.5" y="693" text-anchor="middle" class="node-text">threshold + scientific context</text>
+  <text x="482.5" y="716" text-anchor="middle" class="node-text">decision, limitations, human review</text>
+
+  <rect x="70" y="610" width="230" height="125" rx="9" class="blue"/>
+  <text x="185" y="641" text-anchor="middle" class="node-title">Reproducible Outputs</text>
+  <text x="185" y="667" text-anchor="middle" class="node-file">report.json + report.md</text>
+  <text x="185" y="693" text-anchor="middle" class="node-text">trace, provenance, validation</text>
+  <text x="185" y="716" text-anchor="middle" class="node-text">CIF candidates + token usage</text>
+
+  <path d="M1530 237 H1546 V585 H1405 V610" class="main-arrow"/>
+  <text x="1465" y="574" class="label">valid input</text>
+  <path d="M1280 672.5 H1215" class="main-arrow"/>
+  <path d="M1405 735 V788" class="branch-arrow"/>
+  <text x="1418" y="768" class="label">manual route</text>
+  <path d="M945 672.5 H880" class="main-arrow"/>
+  <path d="M665 672.5 H600" class="main-arrow"/>
+  <path d="M772.5 735 V788" class="branch-arrow"/>
+  <text x="785" y="768" class="label">errors</text>
+  <path d="M365 672.5 H300" class="main-arrow"/>
+  <text x="305" y="658" class="label">completed</text>
+
+  <rect x="70" y="930" width="700" height="125" rx="9" fill="#f8fafc" stroke="#7d8ca3" stroke-width="1.6"/>
+  <text x="95" y="962" class="note-title">Permission boundaries</text>
+  <text x="95" y="990" class="note-text">• The model cannot grant Mock, demo-review, or network permissions.</text>
+  <text x="95" y="1017" class="note-text">• API keys stay inside the local Python process and are never model inputs.</text>
+  <text x="95" y="1044" class="note-text">• Validation errors stop downstream execution or review.</text>
+
+  <rect x="830" y="930" width="700" height="125" rx="9" fill="#fff8ef" stroke="#c97920" stroke-width="1.6"/>
+  <text x="855" y="962" class="note-title">Scientific boundaries</text>
+  <text x="855" y="990" class="note-text">• Fixture and Mock outputs are synthetic demonstrations, not research evidence.</text>
+  <text x="855" y="1017" class="note-text">• “completed” means Reviewer reached; it is not human approval.</text>
+  <text x="855" y="1044" class="note-text">• Real VASP/LAMMPS execution and uncertainty estimates remain future adapters.</text>
+</svg>

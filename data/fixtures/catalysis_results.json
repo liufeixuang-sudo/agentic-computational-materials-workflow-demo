@@ -1,0 +1,23 @@
+[
+  {
+    "reaction_id": "co2_hydrogenation_001",
+    "catalyst": "Pt",
+    "energy_barrier_ev": 0.82,
+    "source": "synthetic_demo_fixture_001",
+    "result_type": "synthetic_demo_fixture"
+  },
+  {
+    "reaction_id": "co2_hydrogenation_002",
+    "catalyst": "Ni",
+    "energy_barrier_ev": 1.18,
+    "source": "synthetic_demo_fixture_002",
+    "result_type": "synthetic_demo_fixture"
+  },
+  {
+    "reaction_id": "co2_hydrogenation_003",
+    "catalyst": "Cu",
+    "energy_barrier_ev": 0.96,
+    "source": "synthetic_demo_fixture_003",
+    "result_type": "synthetic_demo_fixture"
+  }
+]

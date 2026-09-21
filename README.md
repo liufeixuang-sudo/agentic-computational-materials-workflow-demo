@@ -24,7 +24,7 @@ ORCID: [0000-0001-6555-255X](https://orcid.org/0000-0001-6555-255X)
 
 ## Architecture
 
-![Workflow architecture](docs/architecture.svg)
+![Workflow architecture](docs/architecture.png)
 
 See [docs/architecture.md](docs/architecture.md) for the control flow and
 [docs/code-walkthrough.md](docs/code-walkthrough.md) for module-level details.
